@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="utf-8">
+		<title>ESA OREM</title>
+		<meta name="viewport" content="height=device-height, width=device-width, initial-scale=1">
+<!--		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"> -->
+		<link rel="stylesheet" href="./static/css/styles.css">
+		<script src="./static/js/scripts.js"></script>
+	</head>
+	<body class="text_summary">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-sm-4">
+					<form id="navigation">
+						<button class="btn btn-basic" formmethod="get" formaction=>ПРОВЕРИТЬ</button>
+						<button class="btn btn-basic" formmethod="get" formaction=>РАССЧИТАТЬ</button>
+					</form>
+				</div>
+				<div class="col-sm-4">
+					<form id="file_list_request" enctype="multipart/form-data" method="post" action="http://192.168.22.11:9797/file">
+						<div class="input-group">
+							<div class="input-group-prepend">
+								<span class="input-group-text">ЗАГРУЗИТЬ</span>
+							</div>
+							<input id="file_list" class="form-control" type="file" name="file_list" multiple>
+							<input form="file_list_request" class="btn btn-basic" type="submit" value="ОТПРАВИТЬ">
+						</div>
+					</form>				
+				</div>
+<!--			</div>
+		</div>
+		<div class="container-fluid">
+			<div class="row">-->
+				<div class="col-sm-4">
+					<form id="report_control">
+						<div class="input-group">
+							<div class="input-group-prepend">
+								<span class="input-group-text">ОТЧЕТЫ</span>
+							</div>
+							<span class="input-group-text">ГОД:</span>
+							<select id="input_year" class="form-select" list="year_list" name="input_year" 
+								onfocus="yearRequest();" onclick="currentYear = this.value">
+							</select>			
+							<span class="input-group-text">МЕСЯЦ:</span>
+							<select id="input_month" class="form-select" list="month_list" name="input_month" 
+								onfocus="monthRequest();" onclick="currentMonth = this.value">
+							</select>			
+							<span class="input-group-text">ГТП:</span>
+							<select id="input_GTP" class="form-select" list="GTP_list" name="input_GTP" 
+								onfocus="GTPRequest();" onclick="currentGTP = this.value">
+							</select>			
+							<button form="chart_control" class="btn btn-basic" onclick="energyRequest(); powerRequest();">ПОЛУЧИТЬ</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="container-fluid">
+			<p>ЭНЕРГИЯ - СПИСОК ЗАГРУЖЕННЫХ ФАЙЛОВ</p>
+			<table id="energyTable" class="table table-bordered" style="vertical-align: middle;" width="100%">
+				<col class="col1">
+				<col class="col2">
+				<col class="col3" span="5">
+				<thead>
+					<tr>
+						<th>№</th>
+						<th>Наименование</th>
+						<th>Кол-во, кВт∙ч</th>
+						<th>Предварительные обязательства без НДС, руб</th>
+						<th>Корректировка обязательств/требований без НДС, руб</th>
+						<th>Условная цена по ГТП, руб./кВт∙ч</th>
+						<th>Стоимость без НДС, руб.</th>
+					</tr>
+				</thead>
+				<tbody>
+				</tbody>
+			</table>
+		</div>
+		<div class="container-fluid">
+			<p>МОЩНОСТЬ - СПИСОК ЗАГРУЖЕННЫХ ФАЙЛОВ</p>
+			<table id="powerTable" class="table table-bordered" style="vertical-align: middle;" width="100%">
+				<thead>
+					<tr>
+						<th>№</th>
+						<th>Наименование</th>
+						<th>Договор №</th>
+						<th>от</th>
+						<th>Наименование участника ОРЭМ – продавца</th>
+						<th>Идентификационный код участника ОРЭМ – продавца</th>
+						<th>Код ГТП генерации</th>
+						<th>Договорный объем мощности, МВт</th>
+						<th>Аттестованный объем мощности, МВт</th>
+						<th>Объем мощности, фактически поставленный, МВт</th>
+						<th>Цена мощности, руб./МВт</th>
+						<th>Стоимость мощности без НДС, руб.</th>
+						<th>Стоимость мощности, руб.</th>
+						<th>В т.ч. НДС, руб.</th>
+					</tr>
+				</thead>
+				<tbody>
+				</tbody>
+			</table>
+		</div>
+	</body>
+</html>
