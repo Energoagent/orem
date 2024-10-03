@@ -13,8 +13,8 @@
 			<div class="row">
 				<div class="col-sm-4">
 					<form id="navigation">
-						<button class="btn btn-basic" formmethod="get" formaction=>ПРОВЕРИТЬ</button>
-						<button class="btn btn-basic" formmethod="get" formaction=>РАССЧИТАТЬ</button>
+						<button class="btn btn-basic" formmethod="get" disabled formaction=>ГЛАВНАЯ</button>
+						<button class="btn btn-basic" formmethod="get" formaction=>ФАЙЛЫ</button>
 					</form>
 				</div>
 				<div class="col-sm-4">
@@ -24,7 +24,8 @@
 								<span class="input-group-text">ЗАГРУЗИТЬ</span>
 							</div>
 							<input id="file_list" class="form-control" type="file" name="file_list" multiple>
-							<input form="file_list_request" class="btn btn-basic" type="submit" value="ОТПРАВИТЬ">
+<!--							<input form="file_list_request" class="btn btn-basic" type="submit" value="ОТПРАВИТЬ">-->
+							<button form="file_list_request" class="btn btn-basic" onclick="submitFormData('file_list_request');">ОТПРАВИТЬ</button>
 						</div>
 					</form>				
 				</div>
@@ -57,7 +58,7 @@
 			</div>
 		</div>
 		<div class="container-fluid">
-			<p>ЭНЕРГИЯ - СПИСОК ЗАГРУЖЕННЫХ ФАЙЛОВ</p>
+			<p>ЭНЕРГИЯ</p>
 			<table id="energyTable" class="table table-bordered" style="vertical-align: middle;" width="100%">
 				<col class="col1">
 				<col class="col2">
@@ -78,7 +79,7 @@
 			</table>
 		</div>
 		<div class="container-fluid">
-			<p>МОЩНОСТЬ - СПИСОК ЗАГРУЖЕННЫХ ФАЙЛОВ</p>
+			<p>МОЩНОСТЬ</p>
 			<table id="powerTable" class="table table-bordered" style="vertical-align: middle;" width="100%">
 				<thead>
 					<tr>

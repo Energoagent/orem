@@ -79,6 +79,12 @@ function powerRequest() {
 					tableBody = document.createElement('tbody');
 					for (r1 of recordSet) {
 						let newRow = tableBody.insertRow();
+						newCell = document.createElement("td");
+						newCell.appendChild(document.createTextNode(r1.No));
+//						newCell.setAttribute('align', 'right');
+//						newCell.classList.add('rigthAllign');
+//						newCell.style.cssText += "text-align: right;";
+//console.log(newCell.styleName);
 						newRow.insertCell().appendChild(document.createTextNode(r1.No));
 						newRow.insertCell().appendChild(document.createTextNode(r1.report_name));
 						newRow.insertCell().appendChild(document.createTextNode(r1.dog_no));
@@ -169,4 +175,39 @@ function monthRequest() {
 	req.setRequestHeader('Content-type', 'application/json; charset=utf-8');
 	req.send();
 };
+
+/*function submitFormData(formId){
+	frm = document.getElementById(formId);
+	if (frm) {
+		frm.onsubmit = async function(e){
+			e.preventDefault();
+			frmdt = new FormData(frm);
+			var req = new XMLHttpRequest();
+			req.open("POST", HOST + '/file');
+			req.onreadystatechange = 
+				function() {
+					if(this.readyState === 4 && this.status === 200) {
+						
+					};
+				};
+			req.setRequestHeader('Content-type', 'multipart/form-data');
+			req.send(frmdt);
+		};
+	};
+};*/
+	
+function submitFormData(formId){
+	frm = document.getElementById(formId);
+	if (frm) {
+		frm.onsubmit = async function(e){
+			e.preventDefault();
+			let response = await fetch(HOST + '/file', {
+				method: 'POST',
+				body: new FormData(frm)
+			});
+//			let result = await response.json();		
+		};
+	};
+};
+
 

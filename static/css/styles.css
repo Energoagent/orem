@@ -245,7 +245,11 @@ tr {
     unicode-bidi: isolate;
     border-color: inherit;
 }
+/*
+.rigthAllign {
+	text-align: right;
+}*/
 
-.col1 { width: 5%; }
-.col2 { width: 45%; }
-.col3 { width: 10%; text-align:right;}
+.col1 { width: 5%;}
+.col2 { width: 45%;}
+.col3 { width: 10%;}
